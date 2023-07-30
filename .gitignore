@@ -1,0 +1,14 @@
+# ignore all .o files
+*.o
+
+# ignore all .d files
+*.d
+
+# ignore all files named compile_commands.json
+compile_commands.json
+
+# ignore all directory named bin
+bin/
+
+# ignore all directory named .cache
+.cache/
