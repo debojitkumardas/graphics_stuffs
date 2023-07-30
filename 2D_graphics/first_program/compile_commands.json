@@ -1,0 +1,20 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-pedantic",
+      "-g",
+      "-std=c++17",
+      "-c",
+      "-o",
+      "main.o",
+      "main.cpp"
+    ],
+    "directory": "/home/debojitkumardas/Programs/things_to_put_in_github/graphics_stuffs/2D_graphics/first_program",
+    "file": "/home/debojitkumardas/Programs/things_to_put_in_github/graphics_stuffs/2D_graphics/first_program/main.cpp",
+    "output": "/home/debojitkumardas/Programs/things_to_put_in_github/graphics_stuffs/2D_graphics/first_program/main.o"
+  }
+]
