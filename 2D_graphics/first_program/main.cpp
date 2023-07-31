@@ -1,13 +1,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <cmath>
 #include <iostream>
-
-#define PI 4 * atan(1.0)
 
 int main(void)
 {
-
     GLFWwindow* window;
 
     /* Initialize the library */
@@ -24,6 +20,7 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    /* After the context is defined then call glewInit */
     if (glewInit() != GLEW_OK) {
         std::cout << "Error" << std::endl;
     }
@@ -31,18 +28,26 @@ int main(void)
         std::cout << "Success" << std::endl;
     }
 
+    /* Printing the opengl version */
     std::cout << glGetString(GL_VERSION) << std::endl;
+
+    float positions[6] = {
+        -0.5f, -0.5f,
+        0.5f, -0.5f,
+        0.0f, 0.5f
+    };
+
+    unsigned int buffer;
+    glGenBuffers(1, &buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window)) {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glBegin(GL_TRIANGLES);
-        glVertex2f(-0.5f, -0.5f);
-        glVertex2f(0.5f, -0.5f);
-        glVertex2f(0.0f, 0.5f);
-        glEnd();
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
