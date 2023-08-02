@@ -2,7 +2,7 @@ BIN_DIR=./bin/
 
 CXX=g++
 CXXFLAGS=-Wall -Werror -Wextra -pedantic -std=c++17
-LDFLAGS=-fopenmp -lsfml-window -lsfml-graphics -lsfml-system -lGL
+LDFLAGS=-lsfml-window -lsfml-graphics -lsfml-system -lGL
 
 SRC=$(wildcard *.cpp)
 OBJ=$(patsubst %.cpp, %.o, $(SRC))
