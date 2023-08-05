@@ -1,9 +1,10 @@
+// __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia ./bin/main
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
+
     GLFWwindow* window;
 
     /* Initialize the library */
@@ -33,8 +34,8 @@ int main(void)
 
     float positions[6] = {
         -0.5f, -0.5f,
-        0.5f, -0.5f,
-        0.0f, 0.5f
+         0.5f, -0.5f,
+         0.0f,  0.5f
     };
 
     unsigned int buffer;
