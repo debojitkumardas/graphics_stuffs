@@ -11,6 +11,7 @@ BIN=$(BIN_DIR)main
 all: $(BIN)
 
 debug: CXXFLAGS += -DDEBUG -g
+debug: $(BIN)
 
 $(BIN): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
