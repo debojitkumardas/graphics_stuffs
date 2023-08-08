@@ -1,14 +1,16 @@
 BIN_DIR=./bin/
 
 CXX=g++
-CXXFLAGS=-Wall -Werror -Wextra -pedantic -g -std=c++17
-LDFLAGS=-lglfw -lGL -lGLEW
+CXXFLAGS=-Wall -Werror -Wextra -pedantic -std=c++17
+LDFLAGS=-lGL -lglfw -lGLEW
 
 SRC=$(wildcard *.cpp)
 OBJ=$(patsubst %.cpp, %.o, $(SRC))
 BIN=$(BIN_DIR)main
 
 all: $(BIN)
+
+debug: CXXFLAGS += -DDEBUG -g
 
 $(BIN): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
