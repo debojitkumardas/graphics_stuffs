@@ -4,6 +4,7 @@
 #include <SFML/System/Time.hpp>
 #include <ctime>
 #include <iostream>
+#include <string>
 
 #define HEIGHT 800
 #define WIDTH 600
@@ -39,7 +40,9 @@ const std::string shaderCode = R"(
 
     void main() {
         vec2 fragCoord = gl_FragCoord.xy;
-        mainImage(gl_FragColor, fragCoord);
+        vec4 fragColor;
+        mainImage(fragColor, fragCoord);
+        fragColor = gl_FragColor;
     }
 )";
 
@@ -52,15 +55,6 @@ int main() {
 
     sf::RenderWindow window(sf::VideoMode(HEIGHT, WIDTH), "SFML Shader Example", sf::Style::Default, settings);
     window.setVerticalSyncEnabled(true);
-
-    // Initialize GLEW
-    /*
-    glewExperimental = GL_TRUE;
-    if (glewInit() != GLEW_OK) {
-        std::cerr << "Failed to initialize GLEW" << std::endl;
-        return 1;
-    }
-    */
 
     // Create shader program
     sf::Shader shader;
@@ -103,7 +97,7 @@ int main() {
 
         // std::cout << iTime << std::endl;
 
-        shader.setUniform("iResolution", sf::Vector3f(HEIGHT, WIDTH, 0));
+        shader.setUniform("iResolution", sf::Vector3f(HEIGHT, WIDTH, 1.0f));
         shader.setUniform("iTime", iTime);
 
         window.clear();
