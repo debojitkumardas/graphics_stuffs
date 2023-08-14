@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <array>
+
+const std::string kMessage = R"(
+    Hello, this is a c++ string.
+    Contains multiline string.
+)";
+
+void TestFunc(char *msg, unsigned int len) {
+    unsigned int n_len = kMessage.size();
+
+    std::cout << len << std::endl << n_len << std::endl;
+
+    if (n_len < len) {
+        len = n_len - 1;
+    }
+
+    std::cout << len << std::endl << n_len << std::endl;
+
+    for (unsigned int i = 0; i < len; ++i) {
+        msg[i] = kMessage[i];
+    }
+}
+
+auto main() -> int {
+
+    std::array<char, 256> log;
+
+    TestFunc(log.data(), 256);
+
+    std::cout << log.data() << std::endl;
+
+    return 0;
+}
