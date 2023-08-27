@@ -1,4 +1,4 @@
-#include "shader_class.h"
+#include "../hdr/shader_class.h"
 #include <GLFW/glfw3.h>
 #include <array>
 
@@ -41,7 +41,7 @@ auto main() -> int {
         return -1;
     }
 
-    Shader new_shader("vertex.shader", "fragment.shader");
+    Shader new_shader("shaders/vertex.shader", "shaders/fragment.shader");
 
     std::array<float, 12> quad_vertices = {
         -1.0F, -1.0F, 0.0F,
