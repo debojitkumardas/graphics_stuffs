@@ -13,14 +13,20 @@ BIN=$(BIN_DIR)main
 
 all: $(BIN)
 
-debug: CXXFLAGS += -DDEBUG -g
+debug: CXXFLAGS += -DDEBUG -ggdb
 debug: $(BIN)
+
+release: CXXFLAGS += -O2 -DNDEBUG
+release: $(BIN)
 
 $(BIN): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 $(BIN_DIR)%.o: $(SRC_DIR)%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $< $(LDFLAGS)
+
+run_with_nvidia:
+	__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia ./bin/main
 
 clean:
 	rm -rf $(HDR) $(OBJ) $(BIN)
