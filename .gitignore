@@ -9,6 +9,7 @@ compile_commands.json
 
 # ignore all directory named bin
 bin/
+build/
 
 # ignore all directory named .cache
 .cache/
