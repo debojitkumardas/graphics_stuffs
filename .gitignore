@@ -13,3 +13,10 @@ build/
 
 # ignore all directory named .cache
 .cache/
+
+# ignore all image files
+*.ppm
+*.jpg
+*.jpeg
+*.png
+*.svg
